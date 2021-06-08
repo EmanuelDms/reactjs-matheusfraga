@@ -1,64 +1,61 @@
 import React, { Component } from 'react'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      nome: 'Emanuel',
-      contador: 0
+      books: ['Teste', 'Memórias Póstumas de Brás Cubas'],
+      favoriteAuthors: ['Test', 'Machado de Assis'],
+      currentUser: 'Emanuel',
+      gamesAll: ['God Of War', 'Uncharted', 'Super Mario World'],
+      gamesMostPopular: ['Battlefield', 'Cyberpunk', 'Among Us']
     }
-
-    // muda o contexto global para contexto da função
-    this.aumentar = this.aumentar.bind(this)
-    this.diminuir = this.diminuir.bind(this)
-  }
-
-  aumentar() {
-    // referencia ao estado da classe
-    let state = this.state
-
-    // tamanho do nome
-    let stateNomeSize = state.nome.length - 1
-    // adiciona exclamação e remove invertida
-    if (state.nome[stateNomeSize] === '¡')
-      state.nome = state.nome.substring(0, stateNomeSize)
-    else state.nome += '!'
-
-    // soma ao contador
-    state.contador += 1
-    this.setState(state)
-  }
-
-  diminuir() {
-    // referencia ao estado da classe
-    let state = this.state
-
-    // tamanho do nome
-    let stateNomeSize = state.nome.length - 1
-    // verificação se existe caractere diferente de '!'
-    if (state.nome[stateNomeSize] === '!')
-      state.nome = state.nome.substring(0, stateNomeSize)
-    // adiciona exclamação invertida
-    else state.nome += '¡'
-
-    // subtrai ao contador
-    state.contador = state.contador -= 1
-    this.setState(state)
   }
 
   render() {
     return (
       <div>
-        <h1>Contador</h1>
-        <em>{this.state.nome}</em>
-        <h2>
-          <button onClick={this.diminuir}>-</button>
-          {this.state.contador}
-          <button onClick={this.aumentar}>+</button>
-        </h2>
+        <em>
+          <strong>App</strong>
+        </em>
+        <p>Welcome, {this.state.currentUser}!</p>
+        <List title="Todos os jogos" list={this.state.gamesAll} />
+        <List
+          title="Os jogos mais populares"
+          list={this.state.gamesMostPopular}
+        />
+        <List title="Livros" list={this.state.books} />
+        <List title="Autores favoritos" list={this.state.favoriteAuthors} />
+        <Rules />
       </div>
     )
   }
+}
+
+const List = ({ title, list }) => {
+  return (
+    <div>
+      <em>{title}</em>
+      <ul>
+        {list.map((item) => {
+          return <li key={item.toString()}>{item}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
+const Rules = () => {
+  return (
+    <div>
+      <em>Rules</em>
+      <p>The rules are simple and unchanging:</p>
+      <ol>
+        <li>You don&apos;t talk about the rules.</li>
+        <li>You must follow the first rule.</li>
+      </ol>
+    </div>
+  )
 }
 
 export default App
