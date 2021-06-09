@@ -1,37 +1,22 @@
 import React, { Component } from 'react'
+import Feed from './components/Feed'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      status: true
+      feed: [
+        { id: 1, username: 'Matheus', curtidas: 10, comentarios: 2 },
+        { id: 2, username: 'Lucas', curtidas: 120, comentarios: 24 },
+        { id: 3, username: 'Amanda', curtidas: 30, comentarios: 12 },
+        { id: 4, username: 'Carlos', curtidas: 1, comentarios: 0 }
+      ]
     }
-    this.sair = this.sair.bind(this)
-    this.entrar = this.entrar.bind(this)
   }
-
-  sair() {
-    this.setState({ status: false })
-  }
-
-  entrar() {
-    this.setState({ status: true })
-  }
-
   render() {
     return (
       <div>
-        {this.state.status ? (
-          <div>
-            <h1>Bem-vindo ao sistema!</h1>
-            <button onClick={this.sair}>Sair do sistema</button>
-          </div>
-        ) : (
-          <div>
-            <h1>Olá visitante!</h1>
-            <button onClick={this.entrar}>Entrar no sistema</button>
-          </div>
-        )}
+        <Feed list={this.state.feed} />
       </div>
     )
   }
