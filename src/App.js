@@ -1,25 +1,16 @@
-import React, { Component } from 'react'
-import Feed from './components/Feed'
+import React from 'react'
+import ManipulandoForms from './components/manipulando-forms'
+import PraticandoForms from './components/praticando-forms'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      feed: [
-        { id: 1, username: 'Matheus', curtidas: 10, comentarios: 2 },
-        { id: 2, username: 'Lucas', curtidas: 120, comentarios: 24 },
-        { id: 3, username: 'Amanda', curtidas: 30, comentarios: 12 },
-        { id: 4, username: 'Carlos', curtidas: 1, comentarios: 0 }
-      ]
-    }
-  }
-  render() {
-    return (
-      <div>
-        <Feed list={this.state.feed} />
-      </div>
-    )
-  }
+const App = () => {
+  return (
+    <div>
+      <h1>Manipulando Formulários</h1>
+      <ManipulandoForms />
+      <h1>Praticando Formulários</h1>
+      <PraticandoForms />
+    </div>
+  )
 }
 
 export default App
