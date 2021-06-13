@@ -4,22 +4,19 @@ export default class ManipulandoForms extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '',
-      password: '',
-      sexo: 'selecione'
+      form: {
+        email: '',
+        senha: '',
+        sexo: 'selecione'
+      }
     }
-    this.trocaEmail = this.trocaEmail.bind(this)
-    this.trocaSenha = this.trocaSenha.bind(this)
-    this.trocaSexo = this.trocaSexo.bind(this)
+    this.dadosForm = this.dadosForm.bind(this)
   }
-  trocaEmail(e) {
-    this.setState({ email: e.target.value })
-  }
-  trocaSenha(e) {
-    this.setState({ password: e.target.value })
-  }
-  trocaSexo(e) {
-    this.setState({ sexo: e.target.value })
+
+  dadosForm(e) {
+    let form = this.state.form
+    form[e.target.name] = e.target.value
+    this.setState({ form })
   }
 
   render() {
@@ -33,22 +30,26 @@ export default class ManipulandoForms extends Component {
             name="email"
             id="email"
             placeholder="Email..."
-            value={this.state.email}
-            onChange={this.trocaEmail}
+            value={this.state.form.email}
+            onChange={this.dadosForm}
           />
           <br />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="senha">senha:</label>
           <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password..."
-            value={this.state.password}
-            onChange={this.trocaSenha}
+            type="senha"
+            name="senha"
+            id="senha"
+            placeholder="Senha..."
+            value={this.state.form.senha}
+            onChange={this.dadosForm}
           />
           <br />
           <label htmlFor="sexo">Sexo:</label>
-          <select name="sexo" value={this.state.sexo} onChange={this.trocaSexo}>
+          <select
+            name="sexo"
+            value={this.state.form.sexo}
+            onChange={this.dadosForm}
+          >
             <option value="selecione" disabled>
               Selecione
             </option>
@@ -57,9 +58,9 @@ export default class ManipulandoForms extends Component {
           </select>
         </form>
         <div className="output">
-          <h3>{this.state.email}</h3>
-          <h3>{this.state.password}</h3>
-          <h3>{this.state.sexo}</h3>
+          <h3>{this.state.form.email}</h3>
+          <h3>{this.state.form.senha}</h3>
+          <h3>{this.state.form.sexo}</h3>
         </div>
       </div>
     )
