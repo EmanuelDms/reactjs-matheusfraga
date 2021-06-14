@@ -1,7 +1,8 @@
 import React from 'react'
+import Biscoito from './components/biscoito'
 
 const App = () => {
-  return <h1>Hello World!</h1>
+  return <Biscoito />
 }
 
 export default App
