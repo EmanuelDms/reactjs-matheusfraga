@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import BiscoitoImage from '../../assets/biscoito.png'
 import '../../css/style.css'
+import Imagem from '../Imagem'
+import CTAButton from '../CTAButton'
 
 export default class Biscoito extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class Biscoito extends Component {
     ]
 
     this.quebraBiscoito = this.quebraBiscoito.bind(this)
+    this.resetarBiscoito = this.resetarBiscoito.bind(this)
   }
 
   quebraBiscoito() {
@@ -26,11 +28,15 @@ export default class Biscoito extends Component {
     this.setState(state)
   }
 
+  resetarBiscoito() {
+    return this.setState({ textoFrase: '' })
+  }
+
   render() {
     return (
       <div className="container">
-        <img src={BiscoitoImage} />
-        <button onClick={this.quebraBiscoito}>Abrir biscoito</button>
+        <Imagem attr={this.state} />
+        <CTAButton attr={this} />
         <h3 className="textoFrase">
           {this.state.textoFrase && `"${this.state.textoFrase}"`}
         </h3>

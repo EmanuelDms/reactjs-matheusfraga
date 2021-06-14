@@ -1,5 +1,5 @@
 import React from 'react'
-import Biscoito from './components/biscoito'
+import Biscoito from './components/Biscoito'
 
 const App = () => {
   return <Biscoito />
