@@ -1,19 +1,47 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
+/* General */
+#container {
+  display: grid;
+  gap: 2rem;
   align-items: center;
+  justify-content: center;
+  width: 100vw;
 }
 
+.item {
+  display: flex;
+  justify-content: center;
+}
+/* </> General */
+
+/* Cronometro */
 img {
   width: 300px;
-  height: 300px;
+  height: 350px;
 }
 
-.textoFrase {
-  font-style: italic;
-  color: #dd7b22;
-  text-shadow: 2px 2px 5px #fff;
-  text-align: center;
+#cronometro {
+  position: relative;
 }
+
+#timer {
+  font-size: 50px;
+  position: absolute;
+  top: 48%;
+}
+
+/* </> Cronometro */
+
+/* Botões */
+#areaBtn {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 186px);
+  gap: 1rem;
+}
+.botao {
+  width: 150px;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+/* </> Botões */
