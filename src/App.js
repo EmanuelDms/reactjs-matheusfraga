@@ -7,7 +7,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       numero: 0,
-      buttonName: 'INICIAR'
+      buttonName: 'INICIAR',
+      users: [[12, 'Emanuel', 12.5]]
     }
 
     this.timer = null
@@ -25,11 +26,11 @@ export default class App extends Component {
         state.numero += 0.1
         this.setState(state)
       }, 100)
-      state.buttonName = 'PARAR'
+      state.buttonName = 'PAUSAR'
     } else {
       clearInterval(this.timer)
       this.timer = null
-      state.buttonName = 'INICIAR'
+      state.buttonName = 'RETOMAR'
     }
     this.setState(state)
   }
@@ -46,6 +47,7 @@ export default class App extends Component {
   render() {
     return (
       <div id="container">
+        <h1>TIMER</h1>
         <div className="item" id="cronometro">
           <img src={pathCronometro} />
           <a id="timer">{this.state.numero.toFixed(1)}</a>
@@ -55,9 +57,31 @@ export default class App extends Component {
             {this.state.buttonName}
           </a>
           <a className="botao" onClick={this.cleanTimer}>
-            LIMPAR
+            PARAR
           </a>
         </div>
+        <h2>
+          HISTÓRICO (<em>future leadboard</em>)
+        </h2>
+        <table id="leaderboard">
+          <thead>
+            <th>Rank</th>
+            <th>Nome</th>
+            <th>Pontuação</th>
+          </thead>
+          <tbody>
+            {this.state.users &&
+              this.state.users.map((item, index) => {
+                return (
+                  <tr key={item[0]}>
+                    <td>{index + 1}</td>
+                    <td>{item[1]}</td>
+                    <td className="pontuation-cell">{item[2]}s</td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </table>
       </div>
     )
   }
