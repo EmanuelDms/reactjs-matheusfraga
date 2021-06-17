@@ -33,8 +33,9 @@ img {
 
 /* Botões */
 #areaBtn {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 186px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 .botao {
@@ -42,6 +43,20 @@ img {
   background-color: #fff;
   font-size: 20px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.botao:hover {
+  opacity: 0.9;
+  color: #000;
+  transform: all 0.6s;
+}
+
+@media screen and (min-width: 1280px) {
+  #areaBtn {
+    flex-direction: row;
+  }
 }
 /* </> Botões */
