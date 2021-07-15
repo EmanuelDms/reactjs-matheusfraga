@@ -43,6 +43,7 @@ console.log(cadastroPessoa(
 ));
 
 // </> SPREAD = Espalhar
+
 // REST = Descansar
 // a função não sabe o que vem, logo usa-se o rest   
 function minhaLista(...nomes) {
@@ -58,22 +59,28 @@ let usuarios = ["Matheus", "Joao"];
 
 let novosUsuarios = cadastrar(usuarios, "Henrique", "Lucas");
 // </> REST = Descansar
+
 // Operações dentro de arrays
 const lista = [1, 2, 3, 4, 5, 6];
 
 // MAP: 'Mapear' -> Vai percorrer um vetor [array] e retornar um valor.
+console.log('=== map ===')
 const novaLista = lista.map((item, index) => item + index);
+console.log(novaLista);
 
 // Reduce: 'reduzir' -> Vai percorrer um vetor [array] e reduzí-lo a um único valor
 const soma = lista.reduce((total, proximo) => total + proximo);
-console.log(novaLista);
+console.log('=== reduce ===')
+console.log(soma);
 
 // Find: 'achar' -> Vai percorrer um vetor [array] e retornar valores de acordo com a determina condição
 const find = lista.find((item) => item === 2);
+console.log('=== find ===')
 console.log(find);
 
 // Filter: 'filtrar' -> Cria uma matriz preenchida com todos os elementos da matriz que passam em um teste (condição) (fornecido como uma função)
 let idades = [32, 33, 16, 40];
+console.log('=== filter ===')
 let maioridade = idades.filter((idade) => idade >= 18);
 console.log(maioridade);
 
@@ -179,6 +186,6 @@ let pessoas =
       "tipo_sanguineo": "B+",
       "cor": "preto"
     }
-  ];
+];
 
 console.log(`EVERY: ${pessoas.every(item => item.idade >= 18)}`);
