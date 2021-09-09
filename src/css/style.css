@@ -20,16 +20,17 @@
 #container h2 {
   text-align: center;
 }
+
 /* </> General */
 
 /* Cronometro */
+#cronometro {
+  position: relative;
+}
+
 img {
   width: 300px;
   height: 350px;
-}
-
-#cronometro {
-  position: relative;
 }
 
 #timer {
@@ -69,40 +70,3 @@ img {
   }
 }
 /* </> Botões */
-
-/* Leaderboard Table */
-table {
-  border-radius: 0.5rem;
-  border-spacing: 0px;
-  border: 1px solid black;
-  width: 100%;
-
-  background-color: #fff;
-}
-table th {
-  border-radius: 0.5rem 0.5rem 0 0;
-
-  background-color: orangered;
-  color: whitesmoke;
-}
-
-table th:first-child {
-  border-radius: 0.5rem 0 0 0;
-}
-
-table th:last-child {
-  border-radius: 0 0.5rem 0 0;
-}
-
-table tr td:nth-child(1) {
-  text-align: center;
-}
-
-table tbody {
-  padding: 10px;
-}
-
-.pontuation-cell {
-  text-align: right;
-}
-/* </> Leaderboard Table */
