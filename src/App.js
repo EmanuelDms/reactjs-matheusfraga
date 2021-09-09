@@ -1,8 +1,6 @@
-import React from 'react'
-import Biscoito from './components/Biscoito'
+import React from 'react';
+import Biscoito from './components/biscoito';
 
-const App = () => {
-  return <Biscoito />
+export default function App() {
+  return <Biscoito />;
 }
-
-export default App
