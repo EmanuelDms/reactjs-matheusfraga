@@ -1,47 +1,47 @@
-import React, { Component } from 'react'
-import pathCronometro from './assets/cronometro.png'
-import './css/style.css'
+import React, { Component } from 'react';
+import pathCronometro from './assets/cronometro.png';
+import './css/style.css';
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       numero: 0,
       buttonName: 'INICIAR',
       users: [[12, 'Emanuel', 12.5]]
-    }
+    };
 
-    this.timer = null
-    this.startTimer = this.startTimer.bind(this)
-    this.cleanTimer = this.cleanTimer.bind(this)
+    this.timer = null;
+    this.startTimer = this.startTimer.bind(this);
+    this.cleanTimer = this.cleanTimer.bind(this);
   }
 
   startTimer() {
-    let state = this.state
+    let state = this.state;
 
     // Verifica se o tempo já foi iniciado
     if (this.timer === null) {
       // Inicia timer
       this.timer = setInterval(() => {
-        state.numero += 0.1
-        this.setState(state)
-      }, 100)
-      state.buttonName = 'PAUSAR'
+        state.numero += 0.1;
+        this.setState(state);
+      }, 100);
+      state.buttonName = 'PAUSAR';
     } else {
-      clearInterval(this.timer)
-      this.timer = null
-      state.buttonName = 'RETOMAR'
+      clearInterval(this.timer);
+      this.timer = null;
+      state.buttonName = 'RETOMAR';
     }
-    this.setState(state)
+    this.setState(state);
   }
 
   cleanTimer() {
-    let state = this.state
-    state.buttonName = 'INICIAR'
-    clearInterval(this.timer)
-    this.timer = null
-    state.numero = 0
-    this.setState(state)
+    let state = this.state;
+    state.buttonName = 'INICIAR';
+    clearInterval(this.timer);
+    this.timer = null;
+    state.numero = 0;
+    this.setState(state);
   }
 
   render() {
@@ -60,29 +60,7 @@ export default class App extends Component {
             PARAR
           </a>
         </div>
-        <h2>
-          HISTÓRICO (<em>future leadboard</em>)
-        </h2>
-        <table id="leaderboard">
-          <thead>
-            <th>Rank</th>
-            <th>Nome</th>
-            <th>Pontuação</th>
-          </thead>
-          <tbody>
-            {this.state.users &&
-              this.state.users.map((item, index) => {
-                return (
-                  <tr key={item[0]}>
-                    <td>{index + 1}</td>
-                    <td>{item[1]}</td>
-                    <td className="pontuation-cell">{item[2]}s</td>
-                  </tr>
-                )
-              })}
-          </tbody>
-        </table>
       </div>
-    )
+    );
   }
 }
