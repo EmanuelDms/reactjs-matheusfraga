@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState([
+    'Estudar react hooks',
+    'Estudar consumo de api'
+  ]);
+
+  const [taskTitle, setTaskTitle] = useState('');
+
+  function handleAdd() {
+    setTasks([...tasks, taskTitle]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Tasks</h1>
+      <ul>
+        {tasks.map((task, i) => {
+          return <li key={i}>{task}</li>;
+        })}
+      </ul>
+      <input
+        type="text"
+        value={taskTitle}
+        onChange={(e) => setTaskTitle(e.target.value)}
+        placeholder="Insira uma nova atividade..."
+      />
+      <button onClick={handleAdd}>Adicionar</button>
+    </>
   );
 }
 
