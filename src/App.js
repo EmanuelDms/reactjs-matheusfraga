@@ -1,34 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Task from './components/Task';
+import { MyLinkTitle, MyLink, MyHeader } from './styles/styles.js';
 
-function App() {
-  const [tasks, setTasks] = useState([
-    'Estudar react hooks',
-    'Estudar consumo de api'
-  ]);
-
-  const [taskTitle, setTaskTitle] = useState('');
-
-  function handleAdd() {
-    setTasks([...tasks, taskTitle]);
-  }
-
+export default function App() {
   return (
-    <>
-      <h1>Tasks</h1>
-      <ul>
-        {tasks.map((task, i) => {
-          return <li key={i}>{task}</li>;
-        })}
-      </ul>
-      <input
-        type="text"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
-        placeholder="Insira uma nova atividade..."
-      />
-      <button onClick={handleAdd}>Adicionar</button>
-    </>
+    <Router>
+      <MyHeader>
+        <MyLinkTitle to="/">Seção 6: React Hooks</MyLinkTitle>
+        <MyLink to="/useState">useState</MyLink>
+      </MyHeader>
+
+      <Switch>
+        <Route path="/useState" component={Task} />
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
