@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Container } from './styles';
 
 export default function Task() {
@@ -21,10 +21,10 @@ export default function Task() {
     localStorage.tasks = JSON.stringify(tasks);
   }, [tasks]);
 
-  function handleAdd() {
+  const handleAdd = useCallback(() => {
     setTasks([...tasks, input]);
     setInput('');
-  }
+  }, [tasks, input]);
 
   const totalTasks = useMemo(() => tasks.length, [tasks]);
 
