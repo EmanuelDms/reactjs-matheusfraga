@@ -6,10 +6,11 @@ export default function Task() {
     'Estudar consumo de api'
   ]);
 
-  const [taskTitle, setTaskTitle] = useState('');
+  const [input, setInput] = useState('');
 
   function handleAdd() {
-    setTasks([...tasks, taskTitle]);
+    setTasks([...tasks, input]);
+    setInput('');
   }
 
   return (
@@ -22,11 +23,11 @@ export default function Task() {
       </ul>
       <input
         type="text"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
         placeholder="Insira uma nova atividade..."
       />
       <button onClick={handleAdd}>Adicionar</button>
     </div>
-  )
+  );
 }
