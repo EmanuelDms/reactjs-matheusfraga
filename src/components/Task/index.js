@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Task() {
-  const [tasks, setTasks] = useState([
-    'Estudar react hooks',
-    'Estudar consumo de api'
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const [input, setInput] = useState('');
+
+  useEffect(() => {
+    const tasksStorage = localStorage.tasks;
+
+    if (tasksStorage) {
+      setTasks(JSON.parse(tasksStorage));
+    }
+
+    // componenteWillUnmount: executa quando o componente for desmontar
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    localStorage.tasks = JSON.stringify(tasks);
+  }, [tasks]);
 
   function handleAdd() {
     setTasks([...tasks, input]);
