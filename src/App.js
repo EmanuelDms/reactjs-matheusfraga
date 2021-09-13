@@ -8,8 +8,8 @@ export default function App() {
   return (
     <Router>
       <MyHeader>
-        <MyLinkTitle to="/">Seção 6: React Hooks</MyLinkTitle>
-        <MyLink to="/useState">useState</MyLink>
+        <MyLinkTitle to="/">React.js</MyLinkTitle>
+        <MyLink to="/useState">Seção 6: React Hooks</MyLink>
       </MyHeader>
 
       <Switch>
@@ -25,5 +25,7 @@ export default function App() {
 }
 
 function Home() {
-  return <h2>Acesse o(s) link(s) acima para navegar entre as aulas!</h2>;
+  return (
+    <h2>Acesse o(s) link(s) acima para navegar entre os módulos do curso!</h2>
+  );
 }
