@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Container } from './styles';
 
 export default function Task() {
   const [tasks, setTasks] = useState([]);
@@ -25,14 +26,17 @@ export default function Task() {
     setInput('');
   }
 
+  const totalTasks = useMemo(() => tasks.length, [tasks]);
+
   return (
-    <div id="1">
+    <>
       <h1>Tasks</h1>
       <ul>
         {tasks.map((task, i) => {
           return <li key={i}>{task}</li>;
         })}
       </ul>
+      <p>Você têm {totalTasks} tarefa(s)!</p>
       <input
         type="text"
         value={input}
@@ -40,6 +44,6 @@ export default function Task() {
         placeholder="Insira uma nova atividade..."
       />
       <button onClick={handleAdd}>Adicionar</button>
-    </div>
+    </>
   );
 }
