@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Container } from './styles';
 
 export default function Task() {
   const [tasks, setTasks] = useState([]);
