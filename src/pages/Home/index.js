@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
   // General Styles
   root: {
     flexGrow: 1,
+    [theme.breakpoints.down("768")]: {
+      backgroundColor: "#000",
+    },
   },
   header: {
     display: "flex",
@@ -35,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
 
     margin: "auto",
     marginTop: theme.spacing(2.5),
+    "&:last-child": {
+      marginBottom: theme.spacing(2.5),
+    },
+
     padding: theme.spacing(2),
 
     backgroundColor: theme.palette.background.paper,
@@ -43,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     "& > img": {
-      margin: "auto",
       display: "block",
       maxWidth: "100%",
       maxHeight: "100%",
@@ -106,7 +112,7 @@ export default function Home() {
                   <Typography
                     variant="subtitle1"
                     paragraph
-                    wrap
+                    wrap="wrap"
                     className={classes.subtitulo}
                   >
                     {item.subtitulo}
