@@ -5,6 +5,7 @@ import Header from "./pages/Header";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Error from "./pages/Error";
+import Produto from "./pages/Produto";
 
 const Routes = () => {
   return (
@@ -15,6 +16,11 @@ const Routes = () => {
           <Route path="/" exact component={Home} />
           <Route path="/contato" exact component={Contato} />
           <Route path="/sobre" exact component={Sobre} />
+
+          <Route path="/produto/:id" component={Produto} />
+          <Route path="/produto/" component={Produto} />
+
+          {/* This route always have to be the last one */}
           <Route path="*" component={Error} />
         </Switch>
       </Router>

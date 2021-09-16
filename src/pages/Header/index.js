@@ -16,6 +16,7 @@ export default function Header() {
       <Link to="/">Home</Link>
       <Link to="/contato">Contato</Link>
       <Link to="/sobre">Sobre</Link>
+      <Link to="/produto">Produtos</Link>
     </Grid>
   );
 }
